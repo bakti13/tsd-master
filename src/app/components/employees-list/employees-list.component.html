@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Master Karyawan</h2>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Tanggal lahir</th>
+        <th scope="col">Jabatan</th>
+        <th scope="col">NIP</th>
+        <th scope="col">Jenis Kelamin</th>
+        <th class="text-center" scope="col">Aksi</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employe of Employes; let i = index">
+        <th scope="row">{{employe.id}}</th>
+        <td>{{employe.name}}</td>
+        <td>{{employe.birtDate}}</td>
+        <td>{{employe.position.name}}</td>
+        <td>{{employe.idNumber}}</td>
+        <td>{{employe.gender}}</td>
+        <td class="text-center">
+<!--          <button class="btn btn-sm btn-primary" routerLink="/edit-employe/{{employe._id}}">Edit</button>-->
+<!--          <button class="btn btn-sm btn-danger" (click)="delete(employe._id, i)">Delete</button>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
