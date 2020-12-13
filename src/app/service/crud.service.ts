@@ -12,7 +12,7 @@ import {Employee} from '../model/Employee';
 export class CrudService {
 
   // Java/SpringBoot API
-  REST_API = 'http://localhost:8888/api/v1';
+  REST_API = 'https://tsd-backend.herokuapp.com/api/v1';
   // REST_API = 'http://localhost:8888/api/v1';
 
   // Http Header
