@@ -13,6 +13,7 @@ export class CrudService {
 
   // Java/SpringBoot API
   REST_API = 'http://localhost:8888/api/v1';
+  // REST_API = 'http://localhost:8888/api/v1';
 
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
@@ -30,16 +31,15 @@ export class CrudService {
   }
 
   // Get all Employee
-  GetAllEmployee(): Observable<any> {
-    console.log(`SERVICE URL: ${this.REST_API}/all-employee`)
-    return this.httpClient.get(`${this.REST_API}/all-employee`);
+  GetAllEmployee(dataTablesParameters: any): Observable<any> {
+    console.log(`SERVICE URL: ${this.REST_API}/all-employee`);
+    return this.httpClient.get(`${this.REST_API}/all-employee?length=${dataTablesParameters.length}&draw=${dataTablesParameters.draw}&start=${dataTablesParameters.start / dataTablesParameters.length}`);
   }
 
-  // TODO: Get Employee By ID
   // Get single Employee
   GetEmployee(id: any): Observable<Employee> {
-    console.log(` SERVICE URL: ${this.REST_API}/get-employee-by-id/${id}`)
-    const API_URL = `${this.REST_API}/get-employee-by-id/${id}`;
+    console.log(` SERVICE URL: ${this.REST_API}/get-employee/${id}`)
+    const API_URL = `${this.REST_API}/get-employee/${id}`;
     return this.httpClient.get(API_URL, {headers: this.httpHeaders})
       .pipe(map((res: any) => {
           return res || {};
@@ -48,12 +48,13 @@ export class CrudService {
       );
   }
 
-  // TODO : Update Employee
   // Update Employee
   updateEmployee(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/update-book/${id}`;
+    let API_URL = `${this.REST_API}/update-employee/${id}`;
     return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})
-      .pipe(
+      .pipe(map((res: any) => {
+          return res || {};
+        }),
         catchError(this.handleError)
       );
   }
@@ -61,10 +62,13 @@ export class CrudService {
   // TODO : Delete Employee By ID
   // Delete Employee
   deleteEmployee(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/delete-book/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders}).pipe(
-      catchError(this.handleError)
-    );
+    let API_URL = `${this.REST_API}/delete-employee/${id}`;
+    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+      .pipe(map((res: any) => {
+          return res || {};
+        }),
+        catchError(this.handleError)
+      );
   }
 
 

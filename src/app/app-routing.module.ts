@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'promise/karyawanindex' },
   { path: 'promise/karyawanindex', component: EmployeesListComponent },
   { path: 'promise/karyawanindex/add', component: EmployeesAddComponent },
-  { path: 'promise/karyawanindex/edit', component: EmployeesEditComponent }
+  { path: 'promise/karyawanindex/edit/:id', component: EmployeesEditComponent }
 ];
 
 @NgModule({

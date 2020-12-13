@@ -3,8 +3,8 @@
     <h2 class="h2">Master Karyawan</h2>
   </div>
 
-  <div class="table-responsive">
-    <table class="table table-bordered">
+  <!--<div  class="table-responsive">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
       <thead>
       <tr>
         <th scope="col">No</th>
@@ -17,18 +17,58 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let employe of Employes; let i = index">
-        <th scope="row">{{employe.id}}</th>
-        <td>{{employe.name}}</td>
-        <td>{{employe.birtDate}}</td>
-        <td>{{employe.position.name}}</td>
-        <td>{{employe.idNumber}}</td>
-        <td>{{employe.gender}}</td>
+      <tr *ngFor="let emp of employee; let i = index">
+        <th scope="row">{{emp.id}}</th>
+        <td>{{emp.name}}</td>
+        <td>{{emp.birtDate}}</td>
+        <td>{{emp.position.name}}</td>
+        <td>{{emp.idNumber}}</td>
+        <td>{{emp.gender}}</td>
         <td class="text-center">
-<!--          <button class="btn btn-sm btn-primary" routerLink="/edit-employe/{{employe._id}}">Edit</button>-->
-<!--          <button class="btn btn-sm btn-danger" (click)="delete(employe._id, i)">Delete</button>-->
+          <button class="btn btn-sm btn-primary" routerLink="/edit-employe/{{employe._id}}">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(employe._id, i)">Delete</button>
       </tr>
       </tbody>
     </table>
-  </div>
+  </div>-->
+  <a href="promise/karyawanindex/add"  class="btn btn-xs btn-success" title="Edit"><i class="icon-pencil"></i>add</a>
+  <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th >No</th>
+        <th >Nama</th>
+        <th >Tanggal lahir</th>
+        <th >Jabatan</th>
+        <th >NIP</th>
+        <th >Jenis Kelamin</th>
+        <th class="text-center">Aksi</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="employee?.length != 0">
+      <tr *ngFor="let emp of employee; let i = index">
+        <td >{{i+page}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.birtDate}}</td>
+        <td>{{emp.position.name}}</td>
+        <td>{{emp.idNumber}}</td>
+        <td>{{emp.gender}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" routerLink="/promise/karyawanindex/edit/{{emp.id}}">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(emp.id, i)">Delete</button>
+        </td>
+
+<!--        <td>{{emp.name}}</td>-->
+<!--        <td>{{emp.birtDate}}</td>-->
+      </tr>
+    </tbody>
+    <tbody *ngIf="employee?.length == 0">
+      <tr>
+        <td colspan="3" class="no-data-available">No data!</td>
+      </tr>
+    <tbody>
+  </table>
 </div>
+
+<script>
+
+</script>

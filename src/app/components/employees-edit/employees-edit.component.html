@@ -1,1 +1,29 @@
-<p>employees-edit works!</p>
+<div class="row justify-content-center mt-5">
+  <div class="col-md-4">
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+      <div class="form-group">
+        <label>Nama</label>
+        <input class="form-control" type="text" formControlName="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Tanggal Lahir</label>
+        <input class="form-control" type="text" formControlName="birthDate" required>
+      </div>
+
+      <div class="form-group">
+        <label>Jabatan</label>
+        <input class="form-control" type="text" formControlName="description" required>
+      </div>
+
+      <div class="form-group">
+        <label>NIP</label>
+        <input class="form-control" type="text" formControlName="nip" required>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
