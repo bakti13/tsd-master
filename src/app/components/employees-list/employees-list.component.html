@@ -3,35 +3,7 @@
     <h2 class="h2">Master Karyawan</h2>
   </div>
 
-  <!--<div  class="table-responsive">
-    <table datatable [dtOptions]="dtOptions" class="row-border hover">
-      <thead>
-      <tr>
-        <th scope="col">No</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Tanggal lahir</th>
-        <th scope="col">Jabatan</th>
-        <th scope="col">NIP</th>
-        <th scope="col">Jenis Kelamin</th>
-        <th class="text-center" scope="col">Aksi</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let emp of employee; let i = index">
-        <th scope="row">{{emp.id}}</th>
-        <td>{{emp.name}}</td>
-        <td>{{emp.birtDate}}</td>
-        <td>{{emp.position.name}}</td>
-        <td>{{emp.idNumber}}</td>
-        <td>{{emp.gender}}</td>
-        <td class="text-center">
-          <button class="btn btn-sm btn-primary" routerLink="/edit-employe/{{employe._id}}">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="delete(employe._id, i)">Delete</button>
-      </tr>
-      </tbody>
-    </table>
-  </div>-->
-  <a href="promise/karyawanindex/add"  class="btn btn-xs btn-success" title="Edit"><i class="icon-pencil"></i>add</a>
+  <a href="promise/karyawanindex/add"  class="btn btn-xs btn-success" title="Edit"><i class="icon-pencil"></i>Tambah</a>
   <table datatable [dtOptions]="dtOptions" class="row-border hover">
     <thead>
       <tr>

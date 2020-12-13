@@ -9,6 +9,7 @@ import { EmployeesEditComponent } from './components/employees-edit/employees-ed
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {DataTablesModule} from 'angular-datatables';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

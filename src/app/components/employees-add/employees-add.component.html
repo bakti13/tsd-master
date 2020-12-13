@@ -1,1 +1,68 @@
-<p>employees-add works!</p>
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mb-3 border-bottom">
+    <h3 class="h3">Tambah Karyawan</h3>
+  </div>
+  <div class="row justify-content-center mt-5">
+
+    <div class="col-md-8">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="group-gap">
+          <div class="d-block my-3">
+            <div class="mb-3">
+
+              <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" formControlName="name" required>
+              </div>
+
+              <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd" formControlName="birtDate"
+                         name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" required>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">C</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Jabatan</label>
+                <select class="custom-select" formControlName="position">
+                  <option value="">Pilih Jabatan</option>
+                  <option *ngFor="let position of listPosition" [ngValue]="position">{{position.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-group" >
+                <label>NIP</label>
+                <input class="form-control" type="text" formControlName="idNumber" required>
+              </div>
+
+
+              <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="row-cols-lg-6">
+                  <label >
+                    <input  type="radio" [value]="1" formControlName="gender"> Pria
+                  </label>
+                  <p></p>
+                  <label>
+                    <input  type="radio" [value]="2" formControlName="gender"> Wanita
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Submit Button -->
+        <!--      <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>-->
+        <div class="form-group">
+          <button class="btn btn-info btn-block" routerLink="">Kembali</button>
+          <button class="btn btn-success btn-block" type="submit">Tambah</button>
+        </div>
+      </form><!-- Form ends -->
+    </div>
+  </div>
+</div>
